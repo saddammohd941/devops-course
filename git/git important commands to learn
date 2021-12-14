@@ -21,3 +21,4 @@ git revert
 git clone(only particular branch)
 git push (only particular branch)
 what is pull request in git
+rm -rf .git for (remove all version tracking from a project)
