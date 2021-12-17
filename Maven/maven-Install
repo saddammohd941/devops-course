@@ -8,7 +8,7 @@ cd /opt
 2) Download maven
 wget https://mirrors.estointernet.in/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
 3) Extract the maven tar file
-tar xvf apache-maven-3.6.3
+tar xvf apache-maven-3.6.3-bin.tar.gz
 4) Export maven homepath in .bash_profile
 ##################
 # .bash_profile
