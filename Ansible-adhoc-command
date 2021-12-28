@@ -45,7 +45,7 @@ ansible all -m yum -a "name=httpd state=installed"
 
 # Start or stop the service
 # To Start
-ansible all -m service -a "name=httpd state=started enabled=yes"
+ansible all -m service -a "name=httpd state=started" enabled=yes"
 
 # To Stop
-ansible all -m service -a "name=httpd state=stop enabled=yes"
+ansible all -m service -a "name=httpd state=stop" enabled=yes"
