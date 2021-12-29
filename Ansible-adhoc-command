@@ -67,7 +67,9 @@ add our all node group are separate node group like this in this vi edit
 3.6.38.93
 
 vi /etc/ansible/ansible.cfg
-
+inventory      = /etc/ansible/hosts
+sudo_user      = root
+[ here uncommit both ]
 
 vi /etc/sudoers
 username ALL=(ALL)    NOPASSWD: ALL
@@ -77,3 +79,5 @@ PermitRootLogin yes
 PasswordAuthentication yes
 #PermitEmptyPasswords no
 #PasswordAuthentication no
+
+systemctl restart sshd
