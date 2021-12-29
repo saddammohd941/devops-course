@@ -67,12 +67,13 @@ add our all node group are separate node group like this in this vi edit
 3.6.38.93
 
 vi /etc/ansible/ansible.cfg
-PermitRootLogin yes
-PasswordAuthentication yes
-#PermitEmptyPasswords no
-#PasswordAuthentication no
+
 
 vi /etc/sudoers
 username ALL=(ALL)    NOPASSWD: ALL
 
 vi /etc/ssh/sshd_config
+PermitRootLogin yes
+PasswordAuthentication yes
+#PermitEmptyPasswords no
+#PasswordAuthentication no
