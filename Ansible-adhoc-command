@@ -57,8 +57,12 @@ ex:-  ssh-copy-id username@3.109.183.147
 
 ## important vi edit
 vi /etc/ansible/hosts
+
 vi /etc/ansible/ansible.cfg
 PermitRootLogin yes
+PasswordAuthentication yes
+#PermitEmptyPasswords no
+#PasswordAuthentication no
 
 vi /etc/sudoers
 vi /etc/ssh/sshd_config
