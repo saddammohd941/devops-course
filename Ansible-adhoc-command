@@ -55,7 +55,7 @@ ssh-copy-id user name of that instance@pubip of that instance or private ip
 ex:-  ssh-copy-id username@3.109.183.147 
 ## configuration of ansible with public ip [or] private ip as our wish both are work
 
-## important vi edit
+## important vi edit in ansible configuration
 vi /etc/ansible/hosts
 add our all node group are separate node group like this in this vi edit
 [all]
