@@ -57,6 +57,14 @@ ex:-  ssh-copy-id username@3.109.183.147
 
 ## important vi edit
 vi /etc/ansible/hosts
+add our all node group are separate node group like this in this vi edit
+[all]
+13.234.122.78
+3.6.38.93
+[node-01]
+13.234.122.78
+[node-02]
+3.6.38.93
 
 vi /etc/ansible/ansible.cfg
 PermitRootLogin yes
