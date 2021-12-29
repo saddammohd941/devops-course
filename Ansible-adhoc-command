@@ -62,17 +62,17 @@ ansible all -m service -a "name=httpd state=stop" enabled=yes"
  vi /etc/ansible/hosts
 add our all node group are separate node group like this in this vi edit
  [all]
- 13.234.122.78
- 3.6.38.93
+ 13.234.122.78  (pub ip or private ip)
+ 3.6.38.93      (pub ip or private ip)
  [node-01]
- 13.234.122.78
+ 13.234.122.78  (pub ip or private ip)
  [node-02]
- 3.6.38.93
+ 3.6.38.93      (pub ip or private ip)
 
 vi /etc/ansible/ansible.cfg
  inventory      = /etc/ansible/hosts
  sudo_user      = root
-[ here uncommit both ]
+[ here uncommit this both ]
 
 #for creating users
  useradd username
@@ -80,8 +80,8 @@ vi /etc/ansible/ansible.cfg
  type password:
  retype password:
 #add user in sudoers file with root priviliages
+vi /etc/sudoers     (or) other command   visudo
 
-vi /etc/sudoers
  username ALL=(ALL)    NOPASSWD: ALL
 
 vi /etc/ssh/sshd_config
