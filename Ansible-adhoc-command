@@ -73,4 +73,6 @@ PasswordAuthentication yes
 #PasswordAuthentication no
 
 vi /etc/sudoers
+username ALL=(ALL)    NOPASSWD: ALL
+
 vi /etc/ssh/sshd_config
