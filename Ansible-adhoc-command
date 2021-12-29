@@ -49,3 +49,7 @@ ansible all -m service -a "name=httpd state=started" enabled=yes"
 
 # To Stop
 ansible all -m service -a "name=httpd state=stop" enabled=yes"
+
+##  to copy our public key any other instance 
+ssh-copy-id user name of that instance@pubip of that instance or private ip
+ex:-  ssh-copy-id username@3.109.183.147 
