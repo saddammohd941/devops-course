@@ -54,6 +54,7 @@ ansible all -m service -a "name=httpd state=stop" enabled=yes"
 ## configuration of ansible with public ip [or] private ip as our wish both are work
 ## connect to your ansible master instance 
  sudo su
+ python --version
  yum -y install ansible
  ansible --version
 
