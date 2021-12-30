@@ -93,6 +93,8 @@ vi /etc/ssh/sshd_config
 systemctl restart sshd
 
 #to create a keygen in ansible master 
+#switch to user 
+ su - username
  ssh-keygen  (or) ssh-keygen -t rsa
  enter 
  enter
