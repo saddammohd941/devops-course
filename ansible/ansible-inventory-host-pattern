@@ -83,7 +83,7 @@ now do this thing in other nodes also now go the ansible server and try is insid
 
 now establish connection between server and node go to ansible server
 
-[ansible@ip]$ ssh ip address
+[ansible@ip]$ ssh (ip address)
 
 permisssion denied
 
@@ -106,6 +106,6 @@ now verify in ansible server
 
 [root@ip] $ su - ansible
 
-[ansible@ip]$ ssh ip address
+[ansible@ip]$ ssh (ip address)
 
 now it ask for password enter the password after that you will be inside the node1
