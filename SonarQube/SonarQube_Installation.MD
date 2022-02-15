@@ -18,26 +18,26 @@ Install java 1.8 version
 Add mysql rpm Repository
 
  ```sh
-  # yum localinstall https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
+  yum localinstall https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
  ```
  
  Install MySQL 5.7
  
  ```sh
-  # yum -y install mysql-community-server
+  yum -y install mysql-community-server
  ```
  
  Start MySQL and Enable Start at Boot Time
  
  ```sh
-  # systemctl start mysqld
-  # systemctl enable mysqld
+  systemctl start mysqld
+  systemctl enable mysqld
  ```
  
  Check if mysql is running or not
  
   ```sh
-  # netstat -na | grep 3306
+  netstat -na | grep 3306
  ```
  
  Configure the MySQL Root Password 
