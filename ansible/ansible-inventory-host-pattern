@@ -5,7 +5,7 @@ take access of all machines via putty or git bash or mobaxterm
 
 now go inside ansible server and download package
 
-wget 
+[   ]# wget 
 
 now do "ls"
 
