@@ -5,17 +5,17 @@ take access of all machines via putty or git bash or mobaxterm
 
 now go inside ansible server and download package
 
-[   ]# wget 
+[   ]$ wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
 now do "ls"
 
-[   ]# yum install epel-release-latest.7.noarchrpm-y
+[   ]# yum install epel-release-latest-7.noarch.rpm
 
 [   ]# yum update -y
 
 now we have to install all the packages are one by one
 
-[   ]# yum install git python python-level python-pip openssl ansible -y
+[   ]# yum install python python-devel python-pip openssl ansible -y
 
 now go to hosts file inside ansible server and paste private ip of node1 & node2
 
