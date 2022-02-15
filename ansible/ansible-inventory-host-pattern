@@ -1,0 +1,79 @@
+go to aws account create 3 ec2 instances in same availabilityzone
+
+
+take access of all machines via putty or git bash or mobaxterm
+
+now go inside ansible server and download package
+
+wget 
+
+now do "ls"
+
+[   ]# yum install epel-release-latest.7.noarchrpm-y
+
+[   ]# yum update -y
+
+now we have to install all the packages are one by one
+
+[   ]# yum install git python python-level python-pip openssl ansible -y
+
+now go to hosts file inside ansible server and paste private ip of node1 & node2
+
+[   ]# vi /etc/ansible/hosts
+
+now this hosts file is only working a file updating ansible.cfg file
+
+[   ] # vi etc/ansible/ansible.cfg
+
+uncommit 
+
+inventory = /etc/ansible/hosts
+sudo-user = root
+
+now create one user, in all the three instances
+
+[   ] # useradd ansible
+
+now set password for this user
+
+[   ] # passwd ansible
+
+now switch as ansible user 
+
+[   ] # su - ansible
+
+this ansible user dont have sudo priviliages right now if you want to give sudo priviliages to ansible user
+
+[root@ ip ] # visudo (or) vi /etc/sudoers
+
+now go to inside the file 
+
+root    ALL=(ALL)     ALL
+ansible ALL=(ALL) NOPASSWD=ALL
+:wq!
+
+now do this thing in other nodes also now go the ansible server and try is inside httpd package as a ansible user
+
+[ansible@ip]# sudo yum install httpd -y
+
+now establish connection between server and node go to ansible server
+
+[ansible@ip]$ ssh ip address
+
+permisssion denied
+
+now we have to do some changes in sshd_config file go to ansible server
+
+[root@ip]$ vi /etc/ssh/sshd_config
+
+do some changes & saved the file
+
+do this work node1 & node2 also
+
+now verify in ansible server
+
+[root@ip] $ su - ansible
+
+[ansible@ip]$ ssh ip address
+
+now it ask for password enter the password after that you will be inside the node1
