@@ -74,7 +74,7 @@ this ansible user dont have sudo priviliages right now if you want to give sudo 
 now go to inside the file 
 
 root    ALL=(ALL)     ALL
-ansible ALL=(ALL) NOPASSWD=ALL
+ansible ALL=(ALL) NOPASSWD: ALL
 :wq!
 
 now do this thing in other nodes also now go the ansible server and try is inside httpd package as a ansible user
