@@ -96,7 +96,7 @@ now we have to do some changes in sshd_config file go to ansible server do some 
  #PermitEmptyPasswords no
  #PasswordAuthentication no
 
-now restart sshd
+now restart service sshd
 
 [root@ip]# systemctl restart sshd
 
