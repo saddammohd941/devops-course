@@ -87,11 +87,14 @@ now establish connection between server and node go to ansible server
 
 permisssion denied
 
-now we have to do some changes in sshd_config file go to ansible server
+now we have to do some changes in sshd_config file go to ansible server do some changes & saved the file
 
 [root@ip]$ vi /etc/ssh/sshd_config
-
-do some changes & saved the file
+ 
+ PermitRootLogin yes
+ PasswordAuthentication yes
+ #PermitEmptyPasswords no
+ #PasswordAuthentication no
 
 do this work node1 & node2 also
 
