@@ -17,6 +17,23 @@ now we have to install all the packages are one by one
 
 [   ]# yum install git python python-devel python-pip openssl ansible -y
 
+Install Ansible using amazon-linux-extras Repository
+Ansible package can be installed on amazon linux using amazon provided packages.
+
+[   ]# sudo amazon-linux-extras install ansible2
+
+Check Ansible version
+To verify whether Ansible is installed on your machine, you can verify it as follows,
+
+[   ]# ansible --version
+
+ansible 2.9.13
+config file = /etc/ansible/ansible.cfg
+configured module search path = [u'/root/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+ansible python module location = /usr/lib/python2.7/site-packages/ansible
+executable location = /bin/ansible
+python version = 2.7.18 (default, Aug 27 2020, 21:22:52) [GCC 7.3.1 20180712 (Red Hat 7.3.1-9)]
+
 now go to hosts file inside ansible server and paste private ip of node1 & node2
 
 [   ]# vi /etc/ansible/hosts
