@@ -15,7 +15,7 @@ now do "ls"
 
 now we have to install all the packages are one by one
 
-[   ]# yum install python python-devel python-pip openssl ansible -y
+[   ]# yum install git python python-devel python-pip openssl ansible -y
 
 now go to hosts file inside ansible server and paste private ip of node1 & node2
 
