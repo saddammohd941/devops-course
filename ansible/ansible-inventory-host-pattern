@@ -108,4 +108,7 @@ now verify in ansible server
 
 [ansible@ip]$ ssh 10.0.1.114 (node1 or node2 private ip address)
 
-now it ask for password enter the password after that you will be inside the node1
+now it ask for password enter the password after that you will be inside the node1 or node2 
+
+you can make any changes it should reflect on node1 or node2  that you connected by "ssh"
+
