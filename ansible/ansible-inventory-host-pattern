@@ -148,3 +148,20 @@ now verify go to ansible server
 [ansible@ip]# ssh 10.0.1.114 (node1 or node2 private ip address)
 
 now it directly accessing the nodes without any authentications
+
+#########ansible host pattern commands########### 
+
+--> "all" pattern refers to all the machines in inventoty
+
+--> ansible all --list-hosts
+--> ansible <group name> --list-hosts
+--> ansible <group name>[0] --list-hosts  {picks first machine of the gruop}
+            <group name>[1] --list-hosts  {picks second machine of the gruop}
+            <group name>[2] --list-hosts  {picks third machine of the gruop}
+            <group name>[-1] --list-hosts {picks last machine of the group}
+first node represent by [0] 2nd node represent by [2] last node represent by [-1]
+--> ansible <group name>[0:1] --list-hosts  {picks first two machine of the gruop}
+            <group name>[1:4] --list-hosts  {picks first four machine of the gruop}
+            <group name>[2:5] --list-hosts  {picks 2,3,4,5,6  machine of the gruop}
+group separated by a colon can be used to use hosts from multiple groups
+--> groupname1: groupname2
