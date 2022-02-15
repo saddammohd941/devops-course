@@ -96,6 +96,10 @@ now we have to do some changes in sshd_config file go to ansible server do some 
  #PermitEmptyPasswords no
  #PasswordAuthentication no
 
+now restart sshd
+
+[root@ip]# systemctl restart sshd
+
 do this work node1 & node2 also
 
 now verify in ansible server
