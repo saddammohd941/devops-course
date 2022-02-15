@@ -38,6 +38,14 @@ now go to hosts file inside ansible server and paste private ip of node1 & node2
 
 [   ]# vi /etc/ansible/hosts
 
+[demo]
+13.233.11.237
+13.233.250.81
+[dev group]
+13.233.11.237
+[ops group]
+13.233.250.81
+
 now this hosts file is only working a file updating ansible.cfg file
 
 [   ] # vi etc/ansible/ansible.cfg
