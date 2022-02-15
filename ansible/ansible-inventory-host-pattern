@@ -113,3 +113,38 @@ now it ask for password enter the password after that you will be inside the nod
 you can make any changes it should reflect on node1 or node2  that you connected by "ssh"
 
 when you exit accessing node1 or node2 try to access node1 or node2 again asking password
+
+now go to "ansible server" and create a "keygen" for keygen run this command as ansible user
+
+[ansible@ip]# ssh-keygen
+
+[ansible@ip]# enter
+
+[ansible@ip]# enter
+
+[ansible@ip]# enter
+
+[ansible@ip]# ls -a
+o/p--->   .ssh [file]
+
+[ansible@ip]# cd .ssh
+
+[ansible@ip.ssh]# ls
+o/p--->  id_rsa id_rsa.pub
+
+trust relationship
+root=root
+user=user
+
+now i need to copy publickey in both nodes from ansible sever
+
+[ansible@ip.ssh]# ssh-copy-id username@private ip of node1 or node2
+                  ssh-copy-id ansible@10.0.1.192
+                  ssh-copy-id ansible@10.0.9.162
+now it ask password last time type the password
+now trust relationship is established beetween ansible server and node1 and node2
+now verify go to ansible server
+
+[ansible@ip]# ssh 10.0.1.114 (node1 or node2 private ip address)
+
+now it directly accessing the nodes without any authentications
