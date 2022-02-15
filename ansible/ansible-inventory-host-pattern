@@ -50,7 +50,7 @@ now this hosts file is only working a file updating ansible.cfg file
 
 [   ] # vi etc/ansible/ansible.cfg
 
-uncommit 
+uncommit [remove # from this]
 
 inventory = /etc/ansible/hosts
 sudo-user = root
