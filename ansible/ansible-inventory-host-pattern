@@ -112,3 +112,4 @@ now it ask for password enter the password after that you will be inside the nod
 
 you can make any changes it should reflect on node1 or node2  that you connected by "ssh"
 
+when you exit accessing node1 or node2 try to access node1 or node2 again asking password
