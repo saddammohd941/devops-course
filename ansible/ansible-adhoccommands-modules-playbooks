@@ -8,7 +8,7 @@ These Ad-hoc commands are not used for configuration management and deployment, 
 
 The ansible Ad-hoc commands uses the /usr/bin/ansible command line tool to automate a single task..
 
-1). ansible Ad-hoc commands---->
+1). ansible Ad-hoc commands pattern---->
 
 go to ansible server------> try this commands
 
@@ -31,7 +31,7 @@ where ansible modules are stored?
 
 the default location for the inventory file is /etc/ansible/hosts
 
-ansible modules commands----->
+ansible modules commands pattern----->
 
 go to ansible server------> try this commands
 
