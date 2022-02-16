@@ -19,6 +19,8 @@ go to ansible server------> try this commands
 [ansible@ip]# ansible groupname -a "sudo yum install httpd -y"
 [ansible@ip]# ansible groupname -ba "yum install httpd -y"
 [ansible@ip]# ansible groupname -ba "yum remove httpd -y"
+[ansible@ip]# ansible groupname[0] -ba "yum remove httpd -y"
+[ansible@ip]# ansible groupname[0:1] -ba "yum remove httpd -y"
 
 -a is a argument -b is a for sudo
 
