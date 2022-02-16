@@ -1,5 +1,5 @@
-1).Ad-hoc commands  (Simple Linux Commands)
-2).Modules          (single command) in  {YAML Language}
+1).Ad-hoc commands  (Simple Linux Commands) there is no idenpotency
+2).Modules          (single command) in  {YAML Language} idenpotency is present
 3).Playbooks        (more than one module is called playbook) in {YAML Language}
 
 Ad-hoc commands are commands which can be run individually to perform quick functions..
@@ -38,12 +38,12 @@ ansible modules commands pattern----->
 go to ansible server------> try this commands
 
 [ansible@ip]# ansible groupname -b -m yum -a "pkg=httpd state=present"
-[ansible@ip]# ansible groupnmae -b -m yum -a "pkg=httd state=latest"
-[ansible@ip]# ansible groupnmae -b -m yum -a "pkg=httd state=absent"
+[ansible@ip]# ansible groupname -b -m yum -a "pkg=httd state=latest"
+[ansible@ip]# ansible groupname -b -m yum -a "pkg=httd state=absent"
 [ansible@ip]# ansible groupname -b -m service -a "name=httpd state=started"
-[ansible@ip]# ansible groupnmae -b -m user -a "name=raj"
-[ansible@ip]# ansible groupnmae -b -m copy -a "src=file4 dest=/tmp"
-[ansible@ip]# ansible groupnmae[0] -b -m copy -a "src=file4 dest=/tmp"
-[ansible@ip]# ansible groupnmae[0:1] -b -m copy -a "src=file4 dest=/tmp"
-
-
+[ansible@ip]# ansible groupname -b -m user -a "name=raj"
+[ansible@ip]# ansible groupname -b -m copy -a "src=file4 dest=/tmp"
+[ansible@ip]# ansible groupname[0] -b -m copy -a "src=file4 dest=/tmp"
+[ansible@ip]# ansible groupname[0:1] -b -m copy -a "src=file4 dest=/tmp"
+[ansible@ip]# ansible groupname -m setup 
+[ansible@ip]# ansible groupname -m setup -a "filter=*ipv4*"
