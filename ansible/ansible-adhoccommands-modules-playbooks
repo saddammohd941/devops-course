@@ -41,5 +41,7 @@ go to ansible server------> try this commands
 [ansible@ip]# ansible groupname -b -m service -a "name=httpd state=started"
 [ansible@ip]# ansible groupnmae -b -m user -a "name=raj"
 [ansible@ip]# ansible groupnmae -b -m copy -a "src=file4 dest=/tmp"
+[ansible@ip]# ansible groupnmae[0] -b -m copy -a "src=file4 dest=/tmp"
+[ansible@ip]# ansible groupnmae[0:1] -b -m copy -a "src=file4 dest=/tmp"
 
 
