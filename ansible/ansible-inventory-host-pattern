@@ -5,27 +5,27 @@ take access of all machines via putty or git bash or mobaxterm
 
 now go inside ansible server and download package
 
-[   ]$ wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+[root@ip]$ wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
 now do "ls"
 
-[   ]# yum install epel-release-latest-7.noarch.rpm
+[root@ip]# yum install epel-release-latest-7.noarch.rpm
 
-[   ]# yum update -y
+[root@ip]# yum update -y
 
 now we have to install all the packages are one by one
 
-[   ]# yum install git python python-devel python-pip openssl ansible -y
+[root@ip]# yum install git python python-devel python-pip openssl ansible -y
 
 Install Ansible using amazon-linux-extras Repository
 Ansible package can be installed on amazon linux using amazon provided packages.
 
-[   ]# sudo amazon-linux-extras install ansible2
+[root@ip]# sudo amazon-linux-extras install ansible2
 
 Check Ansible version
 To verify whether Ansible is installed on your machine, you can verify it as follows,
 
-[   ]# ansible --version
+[root@ip]# ansible --version
 
 ansible 2.9.13
 config file = /etc/ansible/ansible.cfg
@@ -36,7 +36,7 @@ python version = 2.7.18 (default, Aug 27 2020, 21:22:52) [GCC 7.3.1 20180712 (Re
 
 now go to hosts file inside ansible server and paste private ip of node1 & node2
 
-[   ]# vi /etc/ansible/hosts
+[root@ip]# vi /etc/ansible/hosts
 
 [demo]
 13.233.11.237
@@ -48,7 +48,7 @@ now go to hosts file inside ansible server and paste private ip of node1 & node2
 
 now this hosts file is only working a file updating ansible.cfg file
 
-[   ] # vi /etc/ansible/ansible.cfg
+[root@ip] # vi /etc/ansible/ansible.cfg
 
 uncommit [remove # from this]
 
@@ -57,15 +57,15 @@ sudo-user = root
 
 now create one user, in all the three instances
 
-[   ] # useradd ansible
+[root@ip] # useradd ansible
 
 now set password for this user
 
-[   ] # passwd ansible
+[root@ip] # passwd ansible
 
 now switch as ansible user 
 
-[   ] # su - ansible
+[root@ip] # su - ansible
 
 this ansible user dont have sudo priviliages right now if you want to give sudo priviliages to ansible user
 
