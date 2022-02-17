@@ -1,9 +1,9 @@
-<========ANSIBLE-PLAYBOOK, VARIABLES, HANDLERS & LOOPS========>
+<==========================Ansible-Playbook, Variables, Handlers & Loops==============================>
 
 ---> Playbook in ansible are written in YAML format
 ---> It is human readable data serialization language it is commonly used for configuratin files
 ---> Playbook is like a file where you write codes consist of vars, tasks, handlers, files, templates, & roles.
---->Each playbook is composed of one or more "module" in alist module is a collection of configuration files.
+---> Each playbook is composed of one or more "module" in alist module is a collection of configuration files.
 ---> Playbooks are divided into many sectors like- 
 
 Target-Section:- defines the host againest which playbooks task has to be executed
