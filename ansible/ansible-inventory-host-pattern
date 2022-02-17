@@ -48,7 +48,7 @@ now go to hosts file inside ansible server and paste private ip of node1 & node2
 
 now this hosts file is only working a file updating ansible.cfg file
 
-[   ] # vi etc/ansible/ansible.cfg
+[   ] # vi /etc/ansible/ansible.cfg
 
 uncommit [remove # from this]
 
