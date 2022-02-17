@@ -1,0 +1,119 @@
+Ansible Playbook, Variables, Handlers & Loops
+
+--->playbook in ansible are written in YAML format
+--->it is human readable data serialization language it is commonly used for configuratin files
+--->playbook is like a file where you write codes consist of vars, tasks, handlers, files, templates, & roles.
+--->each playbook is composed of one or more "module" in alist module is a collection of configuration files.
+--->playbooks are divided into many sectors like- 
+target section:-defines the host againest which playbooks task has to be executed
+variable-section:- define variables
+task-section:- list of all modules that we need to run, in an order
+###########YAML (YET ANOTHER MARKUP LANGUAGE)##########
+--->for ansible, nearly every yaml files starts with a list
+--->each item in the list is a list of key-value pairs commonly called a directory
+--->all yaml files have to begin with "---" and end with "***"
+--->all numbers of alist lines must begin with ame indentation level starting with "-"
+###FOR EXAMPLE###
+
+---# a list of fruits
+   fruits:
+   -mango
+   -stawberry
+   -banana
+   -grapes
+   -apple
+***
+
+--->a dictionary is required in a simple key: value form
+######FOR EXAMPLE######
+
+---# detail of customer
+customer:
+  name: rajput
+  job: trainer
+  skills: ansible
+  experiance: 8 years
+***
+
+--->extension playbook files is .yml
+note:- there should be space between : and value
+
+---> go to ansible server
+
+---> now create one playbook,
+
+[ansible@ip]# vi target.yml 
+
+--- # target playbook
+- hosts: all
+  user: ansible
+  connection: ssh
+  become: yes
+  gather_facts: yes
+
+esc ----> :wq!
+
+now, to execute this playbook
+
+[ansible@ip]# ansible-playbook target.yml
+
+###########################################
+PLAY [all] ***************************************************************************************************************************************************
+
+TASK [Gathering Facts] ***************************************************************************************************************************************
+[WARNING]: Platform linux on host 13.126.118.22 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python
+interpreter could change this. See https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [13.126.118.22]
+[WARNING]: Platform linux on host 13.233.196.102 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python
+interpreter could change this. See https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [13.233.196.102]
+
+PLAY RECAP ***************************************************************************************************************************************************
+13.126.118.22              : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+13.233.196.102             : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+
+---> now create one more playbook in ansible server
+
+[ansible@ip]# vi task.yml
+
+--- # my task playbook
+- hosts: all
+  user: ansible
+  connection: ssh
+  become: yes
+  gather_facts: yes
+  tasks:
+    - name: httpd install on linux
+      action: yum name=httpd state=installed
+
+
+esc ---> :wq!
+
+now execute this playbook 
+
+[ansible@ip]# ansible-playbook task.yml
+
+######################################################
+
+PLAY [all] ***************************************************************************************************************************************************
+
+TASK [Gathering Facts] ***************************************************************************************************************************************
+[WARNING]: Platform linux on host 13.126.118.22 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python
+interpreter could change this. See https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [13.126.118.22]
+[WARNING]: Platform linux on host 13.233.196.102 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python
+interpreter could change this. See https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [13.233.196.102]
+
+TASK [httpd install on linux] ********************************************************************************************************************************
+changed: [13.126.118.22]
+changed: [13.233.196.102]
+
+PLAY RECAP ***************************************************************************************************************************************************
+13.126.118.22              : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+13.233.196.102             : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+
+
+
