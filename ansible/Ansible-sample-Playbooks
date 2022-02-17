@@ -83,9 +83,9 @@ PLAY RECAP *********************************************************************
 
 ---> now create one more playbook in ansible server
 
-[ansible@ip]# vi task.yml
+[ansible@ip]# vi target.yml
 
---- # my task playbook
+--- # my target playbook
 - hosts: all
   user: ansible
   connection: ssh
@@ -100,7 +100,7 @@ esc ---> :wq!
 
 now execute this playbook 
 
-[ansible@ip]# ansible-playbook task.yml
+[ansible@ip]# ansible-playbook target.yml
 
 ######################################################
 
