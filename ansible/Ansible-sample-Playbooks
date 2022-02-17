@@ -123,5 +123,48 @@ PLAY RECAP *********************************************************************
 13.233.196.102             : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 
 
+#########variables###########
 
+---> ansible uses variables which are defined previously to enable more flexibility in playbooks and roles they can be used to loop through a set of given values access various information like the host name of a system and replace certain strings in templates with specific values
+---> put variable section above tasks so that we define it first & use it later
+
+now go to ansible server and create aone playbook
+[ansible@ip]# vi vars.yml
+
+
+--- # my vars playbook
+- hosts: all
+  user: ansible
+  connection: ssh
+  gather_facts: yes
+  become: yes
+  vars:
+    pkgname: httpd
+  tasks:
+    - name: httpd install on linux
+      action: yum name='{{pkgname}}' state=present
+
+now execute playbook
+[ansible@ip]# ansible-plaaybook vars.yml
+
+
+############################################
+
+PLAY [all] ***************************************************************************************************************************************************
+
+TASK [Gathering Facts] ***************************************************************************************************************************************
+[WARNING]: Platform linux on host 13.233.196.102 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python
+interpreter could change this. See https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [13.233.196.102]
+[WARNING]: Platform linux on host 13.126.118.22 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python
+interpreter could change this. See https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [13.126.118.22]
+
+TASK [httpd install on linux] ********************************************************************************************************************************
+changed: [13.233.196.102]
+changed: [13.126.118.22]
+
+PLAY RECAP ***************************************************************************************************************************************************
+13.126.118.22              : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+13.233.196.102             : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 
