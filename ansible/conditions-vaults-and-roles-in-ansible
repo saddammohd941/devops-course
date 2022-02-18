@@ -1,1 +1,58 @@
-abcd
+############# CONDITIONS #############
+---> whenever we have different scenarios, we put conditions according to the scenario
+
+when statement
+
+sometimes you want to skip a particular command on a particular node
+
+now go to ansible server create a playbook with name conditions.yml
+
+[ansible@ip]# vi conditions.yml
+
+--- # conditions playbook
+- hosts: all
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+  tasks:
+     - name: install apache on debian
+       command: apt-get -y install apache2
+       when: ansible_os_family == "Debian"
+     - name: install apache for redhat
+       command: yum -y insatll httpd
+       when: ansible_od_family == "RedHat"
+
+esc ---> :wq!
+
+now execute playbook
+
+[ansible@ip]# ansible-playbook conditions.yml
+
+
+############## VAULT ###############
+
+---> Ansible allows keeping sensitive data such as passwords or keys in encrypted files, rather than a plaintext in your playbooks 
+
+---> Creating a new encrypted playbook 
+
+[ansible@ip]$ ansible-vault create vault.yml
+
+---> Edit the encrypted playbook 
+
+[ansible@ip]# ansible-vault edit vault.yml
+
+---> To change the password
+
+[ansible@ip]# ansible-vault rekey vault.yml
+
+---> To encrypt an existing playbook 
+
+[ansible@ip]# ansible-vault encrypt target.yml
+
+---> To decrypt an encrypted playbook
+
+[ansible@ip]# ansible-vault decrypt target.yml
+
+--->
+--->
