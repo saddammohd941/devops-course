@@ -62,16 +62,16 @@ now execute playbook
 ---> we can organaise playbook into a directory stucture called roles
 ---> adding more and more functionality to the playbook will make it difficult to maintain in a single file
 
-===> Default:--> It stores the data about role/application default variables eg--> if you want to run to port 80 or 8080 then variables needs to define in this path 
+===> Default:###--> It stores the data about role/application default variables eg--> if you want to run to port 80 or 8080 then variables needs to define in this path 
 
-===> Files:--> It contains files need to be transfered to the remote VM ( static files )
+===> Files:###--> It contains files need to be transfered to the remote VM ( static files )
 
-===> Handlers:--> They are triggers or task we can segregate all the handlers required in playbook 
+===> Handlers:###--> They are triggers or task we can segregate all the handlers required in playbook 
 
-===> Meta:--> This directory contain files that establish roles dependencies eg--> another name, supported platform, dependencies if any
+===> Meta:###--> This directory contain files that establish roles dependencies eg--> another name, supported platform, dependencies if any
 
-===>Tasks--> It contains all the tasks that is normally in the playbook eg--> installing packages and copies files etc... 
+===>Tasks:###--> It contains all the tasks that is normally in the playbook eg--> installing packages and copies files etc... 
 
-===> Vars:--> variables for the role can be specified in this directory and used in your configuration files both vars and default stores variables
+===> Vars:###--> variables for the role can be specified in this directory and used in your configuration files both vars and default stores variables
 --->
 --->
