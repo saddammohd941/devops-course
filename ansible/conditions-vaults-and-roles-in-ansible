@@ -75,3 +75,31 @@ now execute playbook
 ===> Vars:###--> variables for the role can be specified in this directory and used in your configuration files both vars and default stores variables
 --->
 --->
+######### ROLES #########
+[ansible@ip]# mkdir -p playbook/roles/webserver/tasks
+[ansible@ip]# tree
+o/p---> playbook
+           |--->roles
+                  |--->webserver
+                          |--->tasks
+[ansible@ip]# cd playbook/
+[ansible@ip playbook]# tree
+o/p---> .
+         |--->roles
+                 |--->webserver
+                            |--->tasks
+[ansible@ip playbook]# touch roles/webserver/tasks/main.yml
+[ansible@ip playbook]# touch master.yml
+[ansible@ip playbook]# vi roles/webserver/tasks/main.yml
+inside main.yml
+- name: install apache
+    yum pkg=httpd state=latest
+esc--->:wq!
+[ansible@ip playbook]# vi master.yml
+- host: all
+  user: ansible
+  connection: ssh
+  become: yes
+  roles:
+     - webserver
+[ansible@ip playbook]# ansible-playbook master.yml
