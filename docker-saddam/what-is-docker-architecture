@@ -1,0 +1,82 @@
+####### WHAT IS DOCKER ARCHITECTURE & CONTAINER ########
+
+---> docker is an open-source centralaised platform designed to create, deploy and run applications.
+
+---> docker uses container on the host os to run applications it allows applications to use the same linux kernel as a system on the host computer, rather than creating a whole virtual o.s 
+
+---> we can install docker on any o.s but docker engine runs natively on linux distribution
+
+---> docker written in "go" language 
+
+---> docker is a tool that performs o.s level virtualaization, also known as containaraization. 
+
+---> before docker many users faces the problem that a particular code is running in the developer's system but not in the users system.
+
+---> docker was first release in march 2013 it is developed by solomon hykes and sebastian pahl.
+
+---> docker is a set of "platform as a service" that uses o.s level virtualaization where as vmware uses hardware level virtualaization 
+
+############ ADVANTAGES OF DOCKER #############
+
+---> no pre-allocated of ram
+
+---> CI efficiancy--> docker enables you to build a container image and use that same image across every step of the deployment process
+ 
+---> less cost
+
+---> it is light in weight
+
+---> it can run on physical hardware/virtual hardware or on cloud 
+
+---> you can re-use the image
+
+---> it took very less time to create container
+
+############# DISADVANTAGES OF DOCKER ##############
+
+---> docker is not a good solution for application that requires rich GUI
+---> difficult to manage large amount of containers
+---> docker does not provide cross-platform compatability means if an application is designed to run in a docker container on windows, then it can't run or vice-versa  
+---> docker is suitable when the development o.s and testing o.s are same if the o.s is different we should use vm ware
+---> no solution for data recovery & backup
+
+######### COMPONENTS OF DOCKER ########
+ ########### DOCKER DAEMON
+---> docker daemon run on the host o.s 
+---> it is responsible for running containers to manages docker services
+---> docker daemon can communicate with other daemons
+
+ ####### DOCKER CLIENT
+---> docker users interact with docker daemon through (cli)
+---> docker client uses commands and rest api to communicate with the docker daemon
+---> when a client runs any server command on the docker client terminal, the client terminal sends these docker commands to the docker daemon
+---> it is possible for docker client to communicate with more than one daemon
+
+######## DOCKER HOST
+---> docker host is used to provide an environment to execute and run applications it contains the docker daemon, images, containers, networks and storages... 
+
+ ########## DOCKER HUB/REGISTRY
+---> docker registry manages and stores the docker images
+There are two types of registries in the docker
+
+1). public-registry--> public registry is also called as docker hub
+2). private-registry--> it is used to share images with the enterprise
+
+ ########### DOCKER IMAGES
+---> docker are the read only binary templates used to create docker containers
+                    (or)
+---> single file with all dependencies and configuration required to run a program
+
+ ######### WAYS TO CREATE AN IMAGES
+1). take images from docker hub
+2). create from docker file
+3). create image from existing docker containers
+
+ ########## DOCKER CONTAINER
+---> container hold the entire packages that is needed to run the application
+                      (or)
+---> in other words, we can say that, the image is a template and the container is a copy of that template
+
+---> container is like a virtual machine
+
+---> images becomes container when they run on docker engine...#
