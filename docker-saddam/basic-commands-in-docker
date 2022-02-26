@@ -1,0 +1,98 @@
+######### BASIC COOMANDS IN DOCKER #########
+
+---> To see all images present in your local machine
+[]# docker images
+
+---> To findout images in dockerhub
+[]# docker search jenkins
+
+---> To download image from dockerhub to local machine
+[]# docker pull jenkins
+
+---> To give name to container
+[]# docker run -it --name bhupinder ubuntu/bin/bash
+
+i=interactive mode t=terminal
+
+---> To start docker service
+[]# service docker start
+
+---> To check service is start or not
+[]# service docker status
+[]# docker info
+
+---> To start container
+[]# docker start bhupinder
+
+---> To go inside the container
+[]# docker attach bhupinder
+
+---> To see all containers
+[]# docker ps -a
+
+---> To see only runnig containers
+[]# docker ps
+
+---> To stop container
+[]# docker stop bhupinder
+
+---> To delete container
+[]# docker rm bhupinder
+
+########## DOCKER FILE COMPONENTS OF DIFF COMMAND ###########
+
+---> login to aws account and start your ec2 instance access it from putty or mobaxterm or git bash
+---> now we have to create container fro,our own image
+therefore, create one container first
+--->docker run -it --name saddam ubuntu /bin/bash
+--->cd /tmp
+--->now create the file inside this tmp directory
+---> touch myfile
+--->now if you want to see the difference between the base image & changes on it then
+--->docker diff saddam updateimage
+o/p--> C /root
+       A /root/.bash_history
+       C /tmp
+       A /tmp/myfile
+[A=append or addition
+ C=change
+ D=deletion]
+--->now create image of this container
+--->docker commit newcontainer updateimage
+container name=newcontainer
+name of image=updateimage
+--->docker images
+now create container from this image
+--->docker run -it --name sameer updateimage /bin/bash
+[root@cid]# ls
+[root@cid]# cd /tmp
+[root@cid]# ls
+o/p-->myfile {you will get all files back}
+
+######## Dockerfile ########
+---> Docker file is basically a test file it contains same set of instruction
+---> automation of Docker image creation
+######## DOCKER COMPONENTS #########
+###### FROM
+---> for the image this command must be top of the Dockerfile
+###### RUN
+---> To execute command's it will create a layer in image
+###### MAINTAINER
+---> author/owner/description
+###### COPY
+---> copy files fron local system (docker VM) we need to provide source, destination...
+(we can't download file from internet and remote repo)
+###### ADD
+---> simmilar to copy but, it provides a feature to download files from internet, also we extract file at Docker image side..
+###### EXPOSE
+---> To execute port's such as port 8080 for tomcat, for port 80 for nginx
+###### WORKDIR
+---> to set working directory for a container
+###### CMD
+---> execute commands but during container creation
+###### ENTRYPOINT
+---> simmilar to cmd, but has higher priority over CMD, first commands will be executed. by ENTRYPOINT only....
+###### ENV
+---> Environment Variables
+###### ARG
+--->
