@@ -96,3 +96,32 @@ o/p-->myfile {you will get all files back}
 ---> Environment Variables
 ###### ARG
 --->
+
+###### PRACTICAL DEMO ON DOCKERFILE
+
+---> create a file named dockerfile
+---> add instructions in Dockerfile
+---> build Dockerfile to create image
+---> RUN image to create image
+
+vi DOCKERFILE
+
+FROM ubuntu: xyz
+RUN echo "any content" >/tmp/testfile
+
+to create image out of DOCKERFILE
+docker build -t myimage
+docker ps -a
+docker images
+
+---> now create the container from the above image
+docker run -it --name containername imagename /bin/bash
+cat /tmp/testfile
+
+---> vi DOCKERFILE
+
+FROM mysql: 5.7
+WORKDIR /tmp
+RUN echo "messege" > /tmp/testfile
+COPY testfile/tmp
+ADD test.tar.gz /tmp
