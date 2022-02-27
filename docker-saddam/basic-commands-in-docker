@@ -125,3 +125,25 @@ WORKDIR /tmp
 RUN echo "messege" > /tmp/testfile
 COPY testfile/tmp
 ADD test.tar.gz /tmp
+
+###### DOCKER VOLUME & HOW TO SHARE IT
+
+---> Volume is a simple directory inside 0ur container
+---> firstly we have to declare this directory as a volume and then share volume..
+---> even if we stop container, stil l we can access volume..
+---> volume will be created in one container..
+---> you can declare a directory as a volume only while creating container..
+---> you can't create volume from existing container
+---> you can share one volume accross any number of containers..
+---> volume will not be included when you update an image...
+## you can mapped volume in two types
+
+1).container <-----> container
+2).host <-----> container
+
+####### BENIFITS OF VOLUME
+
+---> decoupling container from storage
+---> share volume among different containers
+---> attach volume to containers
+---> on deleting container volume does not delete
