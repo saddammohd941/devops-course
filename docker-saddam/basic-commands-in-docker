@@ -39,7 +39,7 @@ i=interactive mode t=terminal
 ---> To delete container
 []# docker rm bhupinder
 
-########## DOCKER FILE COMPONENTS OF DIFF COMMAND ###########
+########## DOCKER FILE COMPONENTS & DIFF COMMAND ###########
 
 ---> login to aws account and start your ec2 instance access it from putty or mobaxterm or git bash
 ---> now we have to create container fro,our own image
