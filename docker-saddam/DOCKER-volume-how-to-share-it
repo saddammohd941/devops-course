@@ -94,7 +94,7 @@ now create one file inside this volume and then check in containername you can s
 volumes (host-container)
 verify files in /home/ec2-user
 
-[root@ip]# docker run -it --name hostcont -v /home/ec2-user: /rajput --privileged=true ubuntu /bin/bash
+[root@ip]# docker run -it --name hostcont -v /home/ec2-user:/rajput --privileged=true ubuntu /bin/bash
 
 [root@ip]# cd rajput
 
