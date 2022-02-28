@@ -46,6 +46,7 @@ you can see sample file here
 ###### PRACTICAL DEMO ON CREATING VOLUME FROM COMMANDS
 now try to create volume by using commands
 docker run -it --name containername -v /volume2 ubuntu /bin/bash
+here -v is for declaring as a volume
 do--> ls
 --> cd /volume2
 now create one file cont3file and exit
