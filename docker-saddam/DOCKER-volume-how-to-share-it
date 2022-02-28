@@ -8,7 +8,8 @@
 ---> you can't create volume from existing container
 ---> you can share one volume accross any number of containers..
 ---> volume will not be included when you update an image...
-## you can mapped volume in two types
+
+###### you can mapped volume in two types
 
 1).container <-----> container
 2).host <-----> container
@@ -22,53 +23,99 @@
 
 
 ###### CONTAINER <---> CONTAINER ######
+
 ###### PRACTICAL DEMO ON CREATING VOLUME DOCKERFILE
+
 ---> Create a dockerfile and write
+
+[root@ip]# vi Dockerfile
+
 FROM ubuntu
 VOLUME ["/myvolume1"]
-then create image from this Dockerfile
----> docker build -t myimage
-now create a container from the image&RUN
-docker run -it --name container1 myimage /bin/bash
-now do ls you can see myvolume1
+
+esc---> :wq!
+
+---> then create image from this Dockerfile
+
+[root@ip]# docker build -t myimage
+
+---> now create a container from the image&RUN
+
+[root@ip]# docker run -it --name container1 myimage /bin/bash
+
+---> now do ls you can see myvolume1
+
 now share volume with another container
-container<-->container
-docker run -it --nmae container2 --privilieged=true --volumesfrom container1 /bin/bash
+
+####### container<-->container
+
+[root@ip]# docker run -it --nmae container2 --privilieged=true --volumesfrom container1 /bin/bash
+
 now after creating container2 myvolume1 is visible whatever you do in one volume, can see from another volume
-touch /myvolume1/samplefile
-docker start container1
-docker attach container1
-ls
-cd myvolume1
+
+[root@ip]# touch /myvolume1/samplefile
+
+[root@ip]# docker start container1
+
+[root@ip]# docker attach container1
+
+[root@ip]# ls
+
+[root@ip]# cd myvolume1
+
 you can see sample file here
 
 ###### CONTAINER <---> CONTAINER ######
+
 ###### PRACTICAL DEMO ON CREATING VOLUME FROM COMMANDS
-now try to create volume by using commands
-docker run -it --name containername -v /volume2 ubuntu /bin/bash
-here -v is for declaring as a volume
+
+---> now try to create volume by using commands
+
+[root@ip]# docker run -it --name containername -v /volume2 ubuntu /bin/bash
+
+---> "here -v is for declaring as a volume"
+
 do--> ls
+
 --> cd /volume2
-now create one file cont3file and exit
-now create one more container and share volume2
-docker run -it --name containername --privileged=true --volumes-from containername ubuntu /bin/bash
+
+---> now create one file cont3file and exit
+
+---> now create one more container and share volume2
+
+[root@ip]# docker run -it --name containername --privileged=true --volumes-from containername ubuntu /bin/bash
+
 now you are inside container, do ls, you can see volume2
+
 now create one file inside this volume and then check in containername you can see that
 
 ###### HOST <----> CONTAINER
+
 volumes (host-container)
 verify files in /home/ec2-user
-docker run -it --name hostcont -v /home/ec2-user: /rajput --privileged=true ubuntu /bin/bash
-cd rajput
+
+[root@ip]# docker run -it --name hostcont -v /home/ec2-user: /rajput --privileged=true ubuntu /bin/bash
+
+[root@ip]# cd rajput
+
 do---> ls you can see all files of host machine
----> touch rajputfile (in container)
-exit
+
+[root@ip]# touch rajputfile (in container)
+
+[root@ip]# exit
+
 now check in EC2 machine you can see this file
 
 ###### SOME OTHER COMMANDS
-docker volume ls
-docker volume create <volumename>
-docker volume rm <volumename>
-docker volume prune    {it removed all unused docker volumes}
-docker volume inspect <volumename>
-docker container inspect <containername>
+
+[root@ip]# docker volume ls
+
+[root@ip]# docker volume create <volumename>
+
+[root@ip]# docker volume rm <volumename>
+
+[root@ip]# docker volume prune    {it removed all unused docker volumes}
+
+[root@ip]# docker volume inspect <volumename>
+
+[root@ip]# docker container inspect <containername>
