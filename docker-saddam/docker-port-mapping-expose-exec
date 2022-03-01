@@ -1,0 +1,49 @@
+####### DOCKER PORT EXPOSE
+
+---> Login into AWS account create one linux instance
+Now go to putty---> login as ec2-user
+---> sudo su
+---> yum upodate -y
+---> yum install docker -y
+---> service docker start
+---> service docker status
+---> docker info
+---> docker run -td --name containername -p 80:80 ubuntu
+note here -td===> t=terminal
+                  d=daemon
+note here -p ===> p=port
+---> docker ps
+---> docker port containername
+o/p ---> 80/tcp ---> 0.0.0.0/80
+---> docker exec -it containername /bin/bash
+---> apt-get update
+---> apt-get install apache2 -y
+---> cd /var/www/html
+---> echo "any one messege to reflect" >index.html
+---> service apache2 start
+
+### now do same process on jenkins 
+
+---> docker run -td --name containername -p 8080:8080 jenkins 
+---> docker port 8080
+---> docker exec -it containername /bin/bash
+now copy publicip:8080 of Ec2 instance and browse it....
+
+###### DIFFERENCE BETWEEN DOCKER ATTACH AND DOCKER EXEC
+
+    Docker exec create a new process in the containers environment while docker attach just connect the standard input/output of the main process process inside the container to corresponding standard input/output error of current terminal
+                   (or)
+    Docker exec is specifically for running new things in a already started container, be it a shell or some other process.
+
+###### DIFFERENCE BETWEEN EXPOSE AND PUBLISH A DOCKER
+
+Basically you have three options:-
+1).Neither specify expose nor -p
+2).only specify expose
+3).specify expose and -p
+1.if you specify neither expose nor -p the service in the container will only be accesible from inside the container itself
+2.if you expose a port, the service in the container is not accesible from outside docker, but from inside other docker containers, so this is good for inter-container communication..
+if you do -p but do not expose docker does an implict expose this is beacuase, it is automatically also open to the other docker containers
+hence '-p' includes expose
+3. if you expose and -p a port, the service in the container is accesible from anywhere, even outside docker
+
